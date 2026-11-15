@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ============================================================
+   WELORA — design tokens
+   ============================================================ */
+@theme {
+  /* Modern luminous palette */
+  --color-cream: #f7f5f0;        /* porcelain — page base */
+  --color-soft-white: #fcfcfa;   /* gallery white */
+  --color-charcoal: #15201c;     /* evergreen ink */
+  --color-sage: #8fb49b;         /* fresh sage */
+  --color-sage-light: #e3eee6;   /* mint mist */
+  --color-sage-deep: #0f2b24;    /* deep evergreen */
+  --color-moss: #2f5d4e;
+  --color-peach: #f2c2a8;        /* soft apricot */
+  --color-peach-light: #fbe6da;
+  --color-terracotta: #d2643f;   /* vivid clay */
+  --color-ember: #e8875f;
+  --color-sand: #efeae0;
+  --color-ink-soft: #4d5752;
+
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-serif: var(--font-instrument), "Times New Roman", serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --breakpoint-xs: 30rem;
+}
+
+/* Fluid editorial type scale (mirrors the reference's oversized system) */
+:root {
+  --text-display: clamp(2.55rem, 8.4vw, 9.75rem);
+  --text-h1: clamp(2.75rem, 5.6vw, 5.75rem);
+  --text-statement: clamp(2.1rem, 5vw, 5.4rem);
+  --text-h3: clamp(1.6rem, 2.9vw, 2.65rem);
+  --text-lead: clamp(1.08rem, 1.3vw, 1.36rem);
+  --pad-x: clamp(1.25rem, 3.2vw, 3rem);
+  --pad-y: clamp(6rem, 12vw, 11rem);
+  --radius-panel: clamp(1rem, 2vw, 1.75rem);
+  --page-bg: var(--color-sage-light);
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@layer base {
+  html {
+    background: var(--color-soft-white);
+    color: var(--color-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--page-bg);
+    transition: background-color 0.01s;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-terracotta);
+    color: var(--color-soft-white);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img,
+  video {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  /* One warm, filmic grade across every photograph */
+  main img,
+  main video,
+  footer img {
+    filter: saturate(1.03) contrast(1.04);
+  }
+  em {
+    font-style: normal;
+  }
+}
+
+/* Lenis recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer components {
+  .t-display {
+    font-size: var(--text-display);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    font-weight: 380;
+  }
+  .t-h1 {
+    font-size: var(--text-h1);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 380;
+  }
+  .t-statement {
+    font-size: var(--text-statement);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+  .t-h3 {
+    font-size: var(--text-h3);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .t-lead {
+    font-size: var(--text-lead);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+  }
+  /* Italic serif accent — the editorial counterpoint to the grotesk */
+  .serif-accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    font-size: 1.07em;
+    line-height: 0.9;
+  }
+  .film-grain {
+    position: fixed;
+    inset: -50%;
+    z-index: 95;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.04;
+    animation: grain 1.2s steps(6) infinite;
+  }
+  .t-mono {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .px-page {
+    padding-inline: var(--pad-x);
+  }
+  .py-section {
+    padding-block: var(--pad-y);
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>");
+  }
+  /* SplitText masks */
+  .split-line {
+    overflow: clip;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+}
+
+@keyframes cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(220%); }
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 2%); }
+}
+@keyframes aurora-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, -4%) scale(1.12); }
+}
+@keyframes aurora-b {
+  0%, 100% { transform: translate(0, 0) scale(1.05); }
+  50% { transform: translate(-7%, 5%) scale(0.95); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes morph {
+  0%, 100% { border-radius: 46% 54% 58% 42% / 52% 42% 58% 48%; }
+  33% { border-radius: 58% 42% 44% 56% / 44% 58% 42% 56%; }
+  66% { border-radius: 42% 58% 52% 48% / 58% 46% 54% 42%; }
+}
+
+/* Reduced motion: everything settles into its final state */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

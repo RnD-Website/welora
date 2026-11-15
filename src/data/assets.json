@@ -1,0 +1,36 @@
+{
+  "source": "https://images.unsplash.com",
+  "license": "Unsplash License — free for commercial use, no attribution required (https://unsplash.com/license)",
+  "images": [
+    { "file": "hero.jpg", "id": "photo-1619896849560-f92c4330f1a6", "w": 2400, "alt": "A woman bathed in warm golden-hour light, eyes softly lowered" },
+    { "file": "philosophy-tea.jpg", "id": "photo-1512917602760-97a8fb80dca5", "w": 1800, "alt": "A woman in a white shirt stretching her arms overhead in a sunlit field" },
+    { "file": "philosophy-light.jpg", "id": "photo-1529047033375-f402d3da24ca", "w": 1600, "alt": "Afternoon sunlight falling across a warm, quiet wall" },
+    { "file": "approach-mindful.jpg", "id": "photo-1637689113621-73951984fcc1", "w": 1400, "alt": "An open notebook and pen in dappled morning shadow" },
+    { "file": "approach-mental.jpg", "id": "photo-1519334066009-dc443acc1f65", "w": 1400, "alt": "A woman resting outdoors with her eyes closed" },
+    { "file": "approach-physical.jpg", "id": "photo-1602192509154-0b900ee1f851", "w": 1400, "alt": "A person sitting cross-legged on a grassy hill, hands at heart" },
+    { "file": "approach-inner.jpg", "id": "photo-1463760959829-d829ea46e191", "w": 1400, "alt": "A person sitting at the end of a wooden pier facing a mountain lake" },
+    { "file": "experience-shadow.jpg", "id": "photo-1564132254865-639bfec4c5bf", "w": 1600, "alt": "Palm-leaf shadows drifting across a warm surface" },
+    { "file": "experience-ocean.jpg", "id": "photo-1444044205806-38f3ed106c10", "w": 1800, "alt": "A calm sea at dusk with a soft peach horizon" },
+    { "file": "experience-walk.jpg", "id": "photo-1748449452860-6368fbbf9e00", "w": 1600, "alt": "A woman walking through a sunlit meadow" },
+    { "file": "experience-journal.jpg", "id": "photo-1653569746987-8c1c63b2ffe2", "w": 1400, "alt": "A journal resting on soft linen bedding" },
+    { "file": "experience-sleep.jpg", "id": "photo-1601276174812-63280a55656e", "w": 1600, "alt": "Morning light striping across white pillows" },
+    { "file": "mind.jpg", "id": "photo-1764684829774-5cd4d21dab5a", "w": 2000, "alt": "A person pausing in a golden valley at sunrise" },
+    { "file": "body.jpg", "id": "photo-1581889470536-467bdbe30cd0", "w": 2000, "alt": "A runner moving along an open road in warm evening light" },
+    { "file": "stories-film.jpg", "id": "photo-1603346996604-cd77fc859e1d", "w": 1920, "alt": "Sunbeams streaming through a quiet forest" },
+    { "file": "story-1.jpg", "id": "photo-1786123258223-5f88ba7c074d", "w": 1200, "alt": "A woman standing in a golden field at sunset" },
+    { "file": "story-2.jpg", "id": "photo-1653512488943-5c74e0dfc715", "w": 1200, "alt": "A woman with her eyes closed, calm and reflective" },
+    { "file": "story-3.jpg", "id": "photo-1600603406200-5b2a104684ac", "w": 1200, "alt": "A man smiling softly in natural light" },
+    { "file": "story-4.jpg", "id": "photo-1649115881793-b6a6454c2cdb", "w": 1200, "alt": "The sea glowing orange at sunset" },
+    { "file": "story-5.jpg", "id": "photo-1557943890-94c99f0d28a1", "w": 1200, "alt": "A person balancing in a yoga pose beside a mountain lake" },
+    { "file": "story-6.jpg", "id": "photo-1759854881699-211c2b4f1b49", "w": 1200, "alt": "A woman in dappled sunlight beneath green leaves" },
+    { "file": "hero-portrait.jpg", "id": "photo-1778109303745-8a5d68af26b4", "w": 1400, "alt": "A woman turning toward the warm light" },
+    { "file": "cta.jpg", "id": "photo-1478794973603-001250418864", "w": 2400, "alt": "Golden haze drifting over a quiet field" },
+    { "file": "explore-1.jpg", "id": "photo-1626348448069-9b156d20faeb", "w": 1200, "alt": "A lone tree in a meadow under a setting sun" },
+    { "file": "explore-2.jpg", "id": "photo-1594882645126-14020914d58d", "w": 1200, "alt": "A runner silhouetted against the sunset" },
+    { "file": "explore-3.jpg", "id": "photo-1576110598658-096ae24cdb97", "w": 1200, "alt": "A man in glasses by a window, thoughtful and at ease" },
+    { "file": "footer.jpg", "id": "photo-1548272475-4a32d90e4f91", "w": 2400, "alt": "Soft terracotta dunes at dusk" }
+  ],
+  "videos": [
+    { "file": "stories.mp4", "from": "stories-film.jpg", "poster": "stories-film.jpg" }
+  ]
+}
