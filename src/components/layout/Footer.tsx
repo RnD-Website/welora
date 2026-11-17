@@ -81,7 +81,7 @@ export default function Footer() {
   return (
     <footer ref={root} className="relative overflow-hidden bg-sage-deep text-soft-white" aria-label="Site footer">
       <Aurora tone="dark" />
-      <div className="relative px-page pt-[clamp(4rem,8vw,7rem)]">
+      <div className="relative z-10 px-page pt-[clamp(4rem,8vw,7rem)]">
         <div className="mx-auto max-w-[90rem]">
           {/* Wordmark */}
           <div className="overflow-hidden">
@@ -170,11 +170,13 @@ export default function Footer() {
       </div>
 
       {/* Warm horizon */}
-      <div data-horizon-wrap className="relative h-[clamp(12rem,26vw,24rem)] overflow-hidden" aria-hidden>
-        <div data-horizon className="absolute inset-0">
+      <div data-horizon-wrap className="pointer-events-none relative -mt-[clamp(4rem,8vw,8rem)] h-[clamp(16rem,32vw,30rem)] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.7)_55%,black_80%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.25)_30%,rgba(0,0,0,0.7)_55%,black_80%)]" aria-hidden>
+        <div
+          data-horizon
+          className="absolute inset-0"
+        >
           <Image src={horizon.src} alt="" fill sizes="100vw" className="object-cover object-[50%_60%]" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-sage-deep via-sage-deep/30 to-transparent" />
       </div>
     </footer>
   );

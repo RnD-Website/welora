@@ -65,8 +65,7 @@ export default function Philosophy() {
     <section ref={root} id="philosophy" aria-label={PHILOSOPHY.label} className="relative">
       {/* Manifesto */}
       <div data-bg="#e3eee6" className="relative overflow-hidden px-page pb-[clamp(5rem,10vw,9rem)] pt-[clamp(4rem,8vw,7rem)]">
-        <Aurora tone="mint" className="opacity-80" />
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-b from-transparent to-[#fcfcfa]" />
+        <Aurora tone="mint" className="opacity-80 [mask-image:linear-gradient(to_bottom,black_45%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_45%,transparent)]" />
         <div className="relative mx-auto flex max-w-[64rem] flex-col items-center text-center">
           <Label className="mb-8 md:mb-10">{PHILOSOPHY.label}</Label>
           <ScrubText
@@ -81,7 +80,7 @@ export default function Philosophy() {
       </div>
 
       {/* Asymmetrical editorial spread */}
-      <div data-bg="#fcfcfa" data-spread className="relative px-page pb-section pt-[clamp(3rem,6vw,6rem)]">
+      <div data-bg="#e3eee6" data-spread className="relative px-page pb-section pt-[clamp(3rem,6vw,6rem)]">
         <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-y-14 md:grid-cols-12 md:gap-x-6">
           <div className="relative md:col-span-6 lg:col-span-6">
             <ParallaxImage

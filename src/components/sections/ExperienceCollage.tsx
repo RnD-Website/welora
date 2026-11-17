@@ -6,39 +6,22 @@ import { useRef, useState } from "react";
 import { gsap, useGSAP, MQ } from "@/lib/gsap";
 import { EXPERIENCE } from "@/data/content";
 import { img } from "@/lib/images";
-import ParallaxImage from "@/components/ui/ParallaxImage";
 import RevealText from "@/components/ui/RevealText";
 
 /**
- * Section 05 (continued) — layered storytelling.
- * Three photographs move at different depths (parallax layering), then
- * an interactive "moments" index reveals imagery that follows the cursor.
+ * Section 05 (continued) — an interactive "moments" index that reveals
+ * imagery following the cursor.
  */
 export default function ExperienceCollage() {
   const root = useRef<HTMLDivElement>(null);
   const follower = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<number | null>(null);
-  const ocean = img("experience-ocean");
-  const shadow = img("experience-shadow");
-  const portrait = img("hero-portrait");
 
   useGSAP(
     () => {
       const q = gsap.utils.selector(root);
       const mm = gsap.matchMedia();
       mm.add(MQ.motion, () => {
-        q("[data-depth]").forEach((el) => {
-          const depth = Number(el.dataset.depth);
-          gsap.fromTo(
-            el,
-            { y: depth * 120 },
-            {
-              y: depth * -120,
-              ease: "none",
-              scrollTrigger: { trigger: q("[data-stage]")[0], start: "top bottom", end: "bottom top", scrub: true },
-            },
-          );
-        });
         gsap.from(q("[data-row]"), {
           y: 60,
           autoAlpha: 0,
@@ -71,34 +54,8 @@ export default function ExperienceCollage() {
       <div className="mx-auto max-w-[90rem]">
         <p className="t-lead mb-16 max-w-[30rem] text-charcoal/75 md:hidden">{EXPERIENCE.description}</p>
 
-        {/* Layered composition */}
-        <div data-stage className="relative grid grid-cols-12 items-start gap-4">
-          <div data-depth="0.35" className="relative z-10 col-span-6 col-start-1 -mt-[18vw] md:col-span-3 md:row-start-1 md:mt-[10vw]">
-            <ParallaxImage src={shadow.src} alt={shadow.alt} reveal="down" speed={10} sizes="25vw" className="aspect-[3/4] rounded-[14px]" />
-            <p className="t-mono mt-3 text-charcoal/50">Light, slowly</p>
-          </div>
-
-          <div data-depth="0" className="col-span-12 row-start-1 md:col-span-7 md:col-start-4">
-            <ParallaxImage
-              src={ocean.src}
-              alt={ocean.alt}
-              reveal="center"
-              speed={18}
-              sizes="(min-width: 768px) 60vw, 100vw"
-              className="aspect-[4/5] rounded-[var(--radius-panel)] md:aspect-[5/6]"
-            />
-          </div>
-
-          <div data-depth="-0.45" className="relative z-10 col-span-5 col-start-8 mt-[6vw] md:col-span-3 md:col-start-10 md:row-start-1 md:mt-[22vw]">
-            <div className="relative aspect-square overflow-hidden rounded-full">
-              <Image src={portrait.src} alt={portrait.alt} fill sizes="25vw" className="object-cover" />
-            </div>
-            <p className="t-mono mt-3 text-right text-charcoal/50">Breathe in</p>
-          </div>
-        </div>
-
         {/* Moments index with interactive reveal */}
-        <div className="mt-[clamp(6rem,12vw,11rem)] grid grid-cols-1 gap-10 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <RevealText as="h3" className="t-h3 max-w-[14ch]">
               Four moments that shape a day.
